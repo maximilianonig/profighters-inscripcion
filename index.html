@@ -34,6 +34,12 @@
       padding: 0;
     }
 
+    /* SOLUCIÓN AL FONDO BLANCO: Pintamos la raíz de negro */
+    html {
+      background-color: var(--bg-dark);
+      height: 100%;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-dark);
@@ -42,9 +48,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* CAMBIO 1: Usamos center para agrupar todo en el medio y que no se separe */
       justify-content: center; 
-      background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+      
+      /* CAMBIO CLAVE: El fondo fijo evita que se vea blanco al scrollear */
+      background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%) fixed; 
+      
+      /* CAMBIO CLAVE: Esto elimina el efecto "rebote" elástico en celulares */
+      overscroll-behavior-y: none;
+      
       overflow-x: hidden;
       overflow-y: auto; 
       padding: 20px 0; 
